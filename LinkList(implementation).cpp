@@ -33,6 +33,36 @@ void InsetAtTail(Node* &head,int data)
      n->next=head;
      head=n;
  }
+
+Node* deleteNode(Node *head,int x) // delete a node at Xth position
+{
+    //Your code here
+    Node* temp=head;
+    if(x==1)   //If we want to delete the 1st node 
+    {
+        Node* toDelete=head;
+        head=head->next;
+        delete toDelete;
+        return head;
+    }
+    else
+    {
+        int cnt=1;
+    while(cnt<x-1)
+    {
+        cnt++;
+        temp=temp->next;
+    }
+    Node* toDelete=temp->next;
+    
+    temp->next=temp->next->next;
+    
+    delete toDelete;
+    return head;
+    }
+    
+    
+}
 void Display(Node* head)
 {
 
